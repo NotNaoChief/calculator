@@ -55,7 +55,10 @@ function updateCurrentValue() {
 
 // clear back to 0
 const clear = document.querySelector('#clear');
-clear.addEventListener('click', () => screen.textContent = '0');
+clear.addEventListener('click', () => {
+    screen.textContent = '0';
+    updateCurrentValue();
+});
 
 // functionality to delete 1 number at a time
 const del = document.querySelector('#delete');
