@@ -1,3 +1,6 @@
+let currentValue;
+let previousValue;
+
 function add(a, b) {
     return a + b
 }
@@ -40,5 +43,6 @@ numbers.forEach(number => {
             screen.textContent = '';
         }
         screen.textContent += number.textContent;
+        currentValue = parseInt(screen.textContent);
     })
 });
