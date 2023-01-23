@@ -26,3 +26,19 @@ function operate(operator, a, b) {
             return divide(a,b)
     }
 }
+
+// grab screen for updating display
+const screen = document.querySelector('.screen');
+
+// grab all numbers
+const numbers = document.querySelectorAll('.number');
+
+// button clicks add numbers to screen
+numbers.forEach(number => {
+    number.addEventListener('click', () => {
+        if (screen.textContent === '0') {
+            screen.textContent = '';
+        }
+        screen.textContent += number.textContent;
+    })
+});
