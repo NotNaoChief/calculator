@@ -36,7 +36,3 @@ button {
 #zero, #clear {
     grid-column: 1 / span 2;
 }
-
-#equals {
-    grid-column: 3 / span 2;
-}
