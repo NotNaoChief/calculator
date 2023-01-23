@@ -46,3 +46,7 @@ numbers.forEach(number => {
         currentValue = parseInt(screen.textContent);
     })
 });
+
+// grab clear button
+const clear = document.querySelector('#clear');
+clear.addEventListener('click', () => screen.textContent = '0');
