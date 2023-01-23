@@ -43,10 +43,28 @@ numbers.forEach(number => {
             screen.textContent = '';
         }
         screen.textContent += number.textContent;
-        currentValue = parseInt(screen.textContent);
+        updateCurrentValue()
     })
 });
 
-// grab clear button
+
+function updateCurrentValue() {
+    currentValue = parseInt(screen.textContent);
+}
+
+
+// clear back to 0
 const clear = document.querySelector('#clear');
 clear.addEventListener('click', () => screen.textContent = '0');
+
+// functionality to delete 1 number at a time
+const del = document.querySelector('#delete');
+del.addEventListener('click', () => {
+    if (screen.textContent != '0') {
+        screen.textContent = screen.textContent.slice(0, -1);
+        if (screen.textContent === '') {
+            screen.textContent = 0;
+        }
+        updateCurrentValue()
+    }
+})
