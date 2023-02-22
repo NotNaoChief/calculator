@@ -54,6 +54,7 @@ class Calculator {
 
     updateScreen() {
         this.currentOperandText.innerText = this.currentOperand;
+        this.previousOperandText.innerText = this.previousOperand;
     }
 }
 
