@@ -44,3 +44,23 @@ button {
 .current-operand {
     font-size: 2.5rem;
 }
+
+.operator {
+    background-color: yellow;
+}
+
+.equals {
+    background-color: orange;
+}
+
+.clear, .delete {
+    background-color: red;
+}
+
+.dot {
+    background-color: aquamarine;
+}
+
+.number {
+    background-color: aqua;
+}
