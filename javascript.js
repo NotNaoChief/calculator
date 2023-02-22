@@ -1,73 +1,63 @@
-let currentValue;
-let previousValue;
+const currentOperandText = document.querySelector('[data-current-operand');
+const previousOperandText = document.querySelector('[data-previous-operand]');
+const numberButtons = document.querySelectorAll('[data-number]');
+const operatorButtons = document.querySelectorAll('[data-operator]');
+const clearButton = document.querySelector('[data-clear');
+const deleteButton = document.querySelector('[data-delete');
+const equalsButton = document.querySelector('[data-equals');
 
-function add(a, b) {
-    return a + b
-}
 
-function subtract(a, b) {
-    return a - b
-}
+class Calculator {
+    constructor(previousOperandText, currentOperandText) {
+        this.previousOperandText = previousOperandText;
+        this.currentOperandText = currentOperandText;
+        this.clear()
+    }
 
-function multiply(a, b) {
-    return a * b
-}
+    appendNumber(number) {
+        if (this.currentOperand === '0') {
+            this.currentOperand = ''
+        }
+        if (number === '.' && this.currentOperand.includes('.')) {
+            return
+        }
+        this.currentOperand = this.currentOperand.toString() + number.toString();
+    }
 
-function divide(a, b) {
-    return a / b
-}
+    clear() {
+        this.currentOperand = '0';
+        this.previousOperand = '';
+        this.operator = '';
+        this.updateScreen()
+    }
 
-function operate(operator, a, b) {
-    switch (operator) {
-        case '+':
-            return add(a, b)
-        case '-':
-            return subtract(a, b)
-        case '*':
-            return multiply(a, b)
-        case '/':
-            return divide(a,b)
+    delete() {
+        if (this.currentOperand === '0') {
+            return
+        }
+        this.currentOperand = this.currentOperand.slice(0, -1)
+        if (this.currentOperand === '') {
+            this.currentOperand = '0';
+        }
+        this.updateScreen()
+    }
+
+    operate() {
+
+    }
+
+    updateScreen() {
+        this.currentOperandText.innerText = this.currentOperand;
     }
 }
 
-// grab screen for updating display
-const screen = document.querySelector('.screen');
+const calc = new Calculator(previousOperandText, currentOperandText);
 
-// grab all numbers
-const numbers = document.querySelectorAll('.number');
-
-// button clicks add numbers to screen
-numbers.forEach(number => {
-    number.addEventListener('click', () => {
-        if (screen.textContent === '0') {
-            screen.textContent = '';
-        }
-        screen.textContent += number.textContent;
-        updateCurrentValue()
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calc.appendNumber(button.textContent);
+        calc.updateScreen()
     })
-});
-
-
-function updateCurrentValue() {
-    currentValue = parseInt(screen.textContent);
-}
-
-
-// clear back to 0
-const clear = document.querySelector('#clear');
-clear.addEventListener('click', () => {
-    screen.textContent = '0';
-    updateCurrentValue();
-});
-
-// functionality to delete 1 number at a time
-const del = document.querySelector('#delete');
-del.addEventListener('click', () => {
-    if (screen.textContent != '0') {
-        screen.textContent = screen.textContent.slice(0, -1);
-        if (screen.textContent === '') {
-            screen.textContent = 0;
-        }
-        updateCurrentValue()
-    }
 })
+
+deleteButton.addEventListener('click', () => calc.delete())
