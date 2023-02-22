@@ -42,6 +42,12 @@ class Calculator {
         this.updateScreen()
     }
 
+    setOperator(operator) {
+        this.operator = operator;
+        this.previousOperand = this.currentOperand;
+        this.currentOperand = '0';
+    }
+
     operate() {
 
     }
@@ -56,6 +62,13 @@ const calc = new Calculator(previousOperandText, currentOperandText);
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         calc.appendNumber(button.textContent);
+        calc.updateScreen()
+    })
+})
+
+operatorButtons.forEach(operator => {
+    operator.addEventListener('click', () => {
+        calc.setOperator(operator.textContent);
         calc.updateScreen()
     })
 })
