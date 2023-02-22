@@ -33,6 +33,6 @@ button {
     border-radius: 5px;
 }
 
-#zero, #clear {
+.span-two {
     grid-column: 1 / span 2;
 }
