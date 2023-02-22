@@ -36,3 +36,11 @@ button {
 .span-two {
     grid-column: 1 / span 2;
 }
+
+.previous-operand {
+    font-size: 1.5rem;
+}
+
+.current-operand {
+    font-size: 2.5rem;
+}
