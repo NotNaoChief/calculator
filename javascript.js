@@ -55,12 +55,44 @@ class Calculator {
     }
 
     operate() {
+        let result;
+        const previousValue = parseFloat(this.previousOperand);
+        const currentValue = parseFloat(this.currentOperand);
 
+        if (this.currentOperand === '0' && this.previousOperand === '') {
+            return
+        }
+
+        switch (this.operator) {
+            case '+':
+                result = previousValue + currentValue
+                break
+            case '−':
+                result = previousValue - currentValue
+                break
+            case '×':
+                result = previousValue * currentValue
+                break
+            case '÷':
+                if (currentValue === 0) {
+                    alert("You can't divide by Zero!!");
+                    return
+                }
+                result = previousValue / currentValue
+                break
+            default:
+                return
+        }
+        this.currentOperand = result.toString();
+        this.operator = '';
+        this.previousOperand = '';
     }
 
     updateScreen() {
         this.currentOperandText.innerText = this.currentOperand;
-        this.previousOperandText.innerText = this.previousOperand;
+        if (this.operator !== null) {
+            this.previousOperandText.innerText = `${this.previousOperand} ${this.operator}`
+        }
     }
 }
 
@@ -79,6 +111,11 @@ operatorButtons.forEach(operator => {
         calc.updateScreen()
     })
 })
+
+equalsButton.addEventListener('click', () => {
+    calc.operate();
+    calc.updateScreen();
+});
 
 deleteButton.addEventListener('click', () => calc.delete());
 clearButton.addEventListener('click', () => calc.clear());
