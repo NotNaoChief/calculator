@@ -43,6 +43,12 @@ class Calculator {
     }
 
     setOperator(operator) {
+        if (this.currentOperand === '0' && this.previousOperand === '') {
+            return
+        }
+        if (this.previousOperand !== '') {
+            this.operate();
+        }
         this.operator = operator;
         this.previousOperand = this.currentOperand;
         this.currentOperand = '0';
