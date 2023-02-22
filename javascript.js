@@ -60,4 +60,5 @@ numberButtons.forEach(button => {
     })
 })
 
-deleteButton.addEventListener('click', () => calc.delete())
+deleteButton.addEventListener('click', () => calc.delete());
+clearButton.addEventListener('click', () => calc.clear());
