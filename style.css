@@ -1,0 +1,66 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    min-width: fit-content;
+    border: 1px solid black;
+    padding: .1rem;
+}
+
+.screen {
+    border: 1px solid black;
+    padding: 1rem;
+    font-size: 2rem;
+    text-align: right;
+    margin-bottom: .1rem;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: .1rem;
+}
+
+button {
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.span-two {
+    grid-column: 1 / span 2;
+}
+
+.previous-operand {
+    font-size: 1.5rem;
+}
+
+.current-operand {
+    font-size: 2.5rem;
+}
+
+.operator {
+    background-color: yellow;
+}
+
+.equals {
+    background-color: orange;
+}
+
+.clear, .delete {
+    background-color: red;
+}
+
+.dot {
+    background-color: aquamarine;
+}
+
+.number {
+    background-color: aqua;
+}
