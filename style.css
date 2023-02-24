@@ -45,3 +45,32 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+/* end reset */
+
+
+.calculator {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-rows: 50px 100px;
+    gap: .1rem;
+}
+
+.screen {
+    padding: .4rem;
+    border: 1px solid black;
+    display: grid;
+    gap: .2rem;
+    text-align: end;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .1rem;
+}
+
+.span-two {
+    grid-column: span 2;
+}
