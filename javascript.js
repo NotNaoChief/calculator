@@ -127,6 +127,9 @@ document.addEventListener('keydown', (e) => {
     } else if ('+-*/'.includes(e.key)) {
         calc.setOperator(e.key);
         calc.updateScreen()
-    }
-    }
+    } else if (['=', 'Enter'].includes(e.key)) {
+        calc.operate();
+        calc.updateScreen();
+    } 
+}
 )
