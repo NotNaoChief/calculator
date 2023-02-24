@@ -130,6 +130,8 @@ document.addEventListener('keydown', (e) => {
     } else if (['=', 'Enter'].includes(e.key)) {
         calc.operate();
         calc.updateScreen();
-    } 
+    } else if (['Backspace', 'Delete'].includes(e.key)) {
+        calc.delete();
+    }
 }
 )
