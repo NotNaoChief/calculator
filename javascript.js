@@ -67,13 +67,13 @@ class Calculator {
             case '+':
                 result = previousValue + currentValue
                 break
-            case '−':
+            case '-':
                 result = previousValue - currentValue
                 break
-            case '×':
+            case '*':
                 result = previousValue * currentValue
                 break
-            case '÷':
+            case '/':
                 if (currentValue === 0) {
                     alert("You can't divide by Zero!!");
                     return
@@ -108,7 +108,7 @@ numberButtons.forEach(button => {
 operatorButtons.forEach(operator => {
     operator.addEventListener('click', () => {
         calc.setOperator(operator.textContent);
-        calc.updateScreen()
+        calc.updateScreen();
     })
 })
 
@@ -119,3 +119,21 @@ equalsButton.addEventListener('click', () => {
 
 deleteButton.addEventListener('click', () => calc.delete());
 clearButton.addEventListener('click', () => calc.clear());
+
+document.addEventListener('keydown', (e) => {
+    if ('.0123456789'.includes(e.key)) {
+        calc.appendNumber(e.key);
+        calc.updateScreen();
+    } else if ('+-*/'.includes(e.key)) {
+        calc.setOperator(e.key);
+        calc.updateScreen()
+    } else if (['=', 'Enter'].includes(e.key)) {
+        calc.operate();
+        calc.updateScreen();
+    } else if (['Backspace', 'Delete'].includes(e.key)) {
+        calc.delete();
+    } else if (e.key === 'Escape') {
+        calc.clear();
+    }
+}
+)
