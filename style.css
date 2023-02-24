@@ -47,28 +47,49 @@ table {
 }
 /* end reset */
 
+body {
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+}
+
+.calc-border {
+    padding: 1.5rem;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 25px;
+}
 
 .calculator {
     display: grid;
     justify-content: center;
     align-content: center;
-    min-height: 100vh;
-    grid-template-rows: 50px 100px;
-    gap: .1rem;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+    gap: .25rem;
 }
 
 .screen {
-    padding: .4rem;
-    border: 1px solid black;
-    display: grid;
-    gap: .2rem;
-    text-align: end;
+    grid-column: 1 / -1;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 1rem;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: space-around;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
-.buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: .1rem;
+.calculator > button {
+    font-size: 2rem;
+}
+
+.current-operand {
+    font-size: 2.5rem;
+}
+
+.previous-operand {
+    font-size: 1.5rem;
 }
 
 .span-two {
