@@ -132,6 +132,8 @@ document.addEventListener('keydown', (e) => {
         calc.updateScreen();
     } else if (['Backspace', 'Delete'].includes(e.key)) {
         calc.delete();
+    } else if (e.key === 'Escape') {
+        calc.clear();
     }
 }
 )
