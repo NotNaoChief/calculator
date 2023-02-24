@@ -125,8 +125,8 @@ document.addEventListener('keydown', (e) => {
         calc.appendNumber(e.key);
         calc.updateScreen();
     } else if ('+-*/'.includes(e.key)) {
-            calc.setOperator(e.key);
-            calc.updateScreen()
-        }
+        calc.setOperator(e.key);
+        calc.updateScreen()
+    }
     }
 )
