@@ -11,10 +11,14 @@ class Calculator {
     constructor(previousOperandText, currentOperandText) {
         this.previousOperandText = previousOperandText;
         this.currentOperandText = currentOperandText;
+        this.displayingResult = false;
         this.clear()
     }
 
     appendNumber(number) {
+        if (this.displayingResult === true) {
+            return
+        }
         if (this.currentOperand === '0') {
             this.currentOperand = ''
         }
@@ -28,11 +32,15 @@ class Calculator {
         this.currentOperand = '0';
         this.previousOperand = '';
         this.operator = '';
+        this.displayingResult = false;
         this.updateScreen()
     }
 
     delete() {
         if (this.currentOperand === '0') {
+            return
+        }
+        if (this.displayingResult === true) {
             return
         }
         this.currentOperand = this.currentOperand.slice(0, -1)
@@ -46,8 +54,12 @@ class Calculator {
         if (this.currentOperand === '0' && this.previousOperand === '') {
             return
         }
+        if (this.displayingResult === true) {
+            this.displayingResult = false;
+        }
         if (this.previousOperand !== '') {
             this.operate();
+            this.displayingResult = false;
         }
         this.operator = operator;
         this.previousOperand = this.currentOperand;
@@ -86,6 +98,7 @@ class Calculator {
         this.currentOperand = result.toString();
         this.operator = '';
         this.previousOperand = '';
+        this.displayingResult = true;
     }
 
     updateScreen() {
