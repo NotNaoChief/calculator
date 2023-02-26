@@ -87,7 +87,7 @@ body {
 }
 
 .calculator > button {
-    font-size: clamp(1rem, 2vw, 2.5rem);
+    font-size: clamp(.5rem, 2vw, 2.5rem);
 }
 
 .current-operand {
